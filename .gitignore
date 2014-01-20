@@ -1,7 +1,9 @@
-*.class
-
-# Package Files #
-*.jar
+.idea
+build/
+out/
 *.war
 *.ear
 *.iml
+*.txt
+*.ser
+*.zip
