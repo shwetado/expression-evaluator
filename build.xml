@@ -39,20 +39,33 @@
     </target>
 
     <target name = "compile-test" depends = "compile">
-        <javac srcdir = "test" destdir= "build/classes/test"
-               classpath="lib/test/junit-4.10.jar;build/classes/src" debug="yes" includeAntRuntime = "false">
-            <classpath refid="cobertura.classpath" />
-        </javac>
+            <javac srcdir = "test" destdir= "build/classes/test"
+                   classpath="lib/test/junit-4.10.jar;build/classes/src" debug="yes" includeAntRuntime = "false">
+                <classpath refid="cobertura.classpath" />
+            </javac>
     </target>
 
-    <target name="run-tests" depends="compile-test">
-        <java classname="org.junit.runner.JUnitCore"
-              classpath="lib/test/junit-4.10.jar;
-                    build/classes/src/;
-                    build/classes/test/">
-            <arg value="shwetado.evaluator.EvaluatorTest"/>
-        </java>
+    <target name="testing" depends="compile-test">
+        <junit failureproperty = "test.failed">
+            <classpath>
+                <pathelement location="build/classes/src" />
+                <pathelement location="build/classes/test" />
+                <pathelement location="lib/test/junit-4.10.jar"/>
+            </classpath>
+            <batchtest>
+                <fileset dir="build/classes/test">
+                    <include name="**/*Test*" />
+                </fileset>
+            </batchtest>
+            <formatter type = "brief" usefile = "false"/>
+        </junit>
     </target>
+
+    <target name="exit" if="test.failed">
+        <fail message="You have failing test cases"/>
+    </target>
+
+    <target name="run-tests" depends="testing,exit"/>
 
     <!--============================================================================-->
 
