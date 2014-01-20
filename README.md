@@ -5,7 +5,7 @@ This repository has implementation for evaluating mathematical expressions accor
 #### How do you install?
 * Download the `.jar` and `.sh` files.
 * Then you can just run the shell file.
-* If you want to run exression-evaluator then then
+* If you want to run expression-evaluator then then
     `sh sd_evaluator.sh $expression`.
 
 ##### expression-evauator :
