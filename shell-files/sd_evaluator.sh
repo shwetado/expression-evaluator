@@ -1,0 +1,1 @@
+java -cp ${EVALUATOR}/lib/expression-evaluator.jar shwetado.evaluator.cli.EvaluatorClient $@
