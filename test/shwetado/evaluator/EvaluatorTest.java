@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class EvaluatorTest {
     @Test
-    public void testGetExpression() throws Exception {
+    public void testGivesTheActualExpressionGiven() throws Exception {
         String expression = "1 + 5";
         Evaluator evaluator = new Evaluator(expression);
         String actual = evaluator.getExpression();
