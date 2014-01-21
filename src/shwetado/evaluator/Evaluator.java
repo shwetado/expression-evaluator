@@ -27,6 +27,6 @@ public class Evaluator extends Operation{
             }
         }
         Operation op = new Operation();
-        return op.getOperationResult(operators.get(0),operands.get(0),operands.get(1));
+        return op.evaluateResult(operators.get(0),operands.get(0),operands.get(1));
     }
 }

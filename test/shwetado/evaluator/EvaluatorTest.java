@@ -56,4 +56,5 @@ public class EvaluatorTest {
         int actual = evaluator.getResult();
         Assert.assertEquals(expected, actual);
     }
+
 }
