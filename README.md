@@ -17,3 +17,18 @@ This repository has implementation for evaluating mathematical expressions accor
 ```
 sd_evaluator.sh expression
 ```
+
+##### expression-evauator :
+* Works for:
+
+```
+It accepts:
+    Positive numbers
+    One operator
+    Two operands
+    Operators like : +, - , * , / , ^
+Exceptions:
+    Negative numbers
+    Decimal numbers
+    Brackets
+```

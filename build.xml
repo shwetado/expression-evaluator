@@ -145,7 +145,7 @@
     </target>
 
     <target name = "createZip" depends = "generateDocs">
-        <zip destfile = "expression-evaluator.zip" basedir = "build/dist" update = "true"/>
+        <zip destfile = "evaluator-0.2.zip" basedir = "build/dist" update = "true"/>
     </target>
 
 </project>
