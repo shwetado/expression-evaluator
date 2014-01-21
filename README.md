@@ -18,8 +18,7 @@ This repository has implementation for evaluating mathematical expressions accor
 sd_evaluator.sh expression
 ```
 
-##### expression-evauator :
-* Works for:
+#### Release 0.1: Works for:
 
 ```
 It accepts:
@@ -32,3 +31,13 @@ Exceptions:
     Decimal numbers
     Brackets
 ```
+Accepts expressions like :
+
+```
+sd_evaluator.sh "operand operator operand"
+```
+Example:
+```
+sd_evaluator.sh "5 + 7"
+```
+Output: 12
