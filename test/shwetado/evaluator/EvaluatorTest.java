@@ -102,4 +102,13 @@ public class EvaluatorTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testGivesResultForDifferentOperatorsForThreeNumbers() throws Exception {
+        String expression = "2 + 2 * 2";
+        int expected = 8;
+        Evaluator evaluator = new Evaluator(expression);
+        int actual = evaluator.getResult();
+        Assert.assertEquals(expected, actual);
+    }
+
 }
