@@ -75,4 +75,31 @@ public class EvaluatorTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testGivesTheMultiplicationOfThreeNumbers() throws Exception {
+        String expression = "2 * 2 * 2";
+        int expected = 8;
+        Evaluator evaluator = new Evaluator(expression);
+        int actual = evaluator.getResult();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGivesTheDivisionOfThreeNumbers() throws Exception {
+        String expression = "20 / 1 / 2";
+        int expected = 10;
+        Evaluator evaluator = new Evaluator(expression);
+        int actual = evaluator.getResult();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGivesThePowerOfThreeNumbers() throws Exception {
+        String expression = "2 ^ 2 ^ 2";
+        int expected = 16;
+        Evaluator evaluator = new Evaluator(expression);
+        int actual = evaluator.getResult();
+        Assert.assertEquals(expected, actual);
+    }
+
 }
