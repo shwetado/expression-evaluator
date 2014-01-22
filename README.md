@@ -11,6 +11,7 @@ This repository has implementation for evaluating mathematical expressions accor
 ##### expression-evauator :
 * You need to give your expression in form of:
         `operand operator operand` each separated by spaces!
+* It atleast needs one operator and two operands!
 * Evaluates the given expression.
 * For example: `2 + 3`
 
@@ -48,16 +49,9 @@ Output: 12
 ##### Release 0.2: Works for:
 
 ```
-It accepts
-    Positive numbers
+It accepts:
     Multiple operators
     Multiple operands
-    Operators like : +, - , * , / , ^
-
-Exceptions:
-	Negative numbers
-	Decimal numbers
-	Brackets
 ```
 
 Accepts expressions in the form given below:
@@ -70,3 +64,8 @@ Example:
 sd_evaluator.sh "2 + 2 * 2 / 2 - 2 ^ 2"
 ```
 Output: 4
+
+### Known Bugs:
+
+* While divide operation the result is whole number even if the expression returns decimal.
+* The "raise to a power" gives constant value when the integer range is over!
