@@ -66,5 +66,13 @@ public class EvaluatorTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testGivesTheSubtractionOfThreeNumbers() throws Exception {
+        String expression = "12 - 2 - 2";
+        int expected = 8;
+        Evaluator evaluator = new Evaluator(expression);
+        int actual = evaluator.getResult();
+        Assert.assertEquals(expected, actual);
+    }
 
 }
