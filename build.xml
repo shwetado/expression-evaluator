@@ -144,7 +144,7 @@
                  author  = "true" version = "true"/>
     </target>
 
-    <target name = "createZip" depends = "generateDocs">
+    <target name = "dist" depends = "generateDocs">
         <zip destfile = "evaluator-0.2.zip" basedir = "build/dist" update = "true"/>
     </target>
 
