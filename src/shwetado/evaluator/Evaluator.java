@@ -8,11 +8,11 @@ public class Evaluator extends Operation{
 
     public Evaluator(String expression) {
         super();
-        this.expression = expression;
+        this.expression = expression.trim();
     }
 
     public String getExpression() {
-        return this.expression;
+        return this.expression.trim();
     }
 
     public int getResult (String innerExpression) throws Exception {
