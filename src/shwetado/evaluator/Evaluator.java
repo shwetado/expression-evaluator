@@ -33,7 +33,7 @@ public class Evaluator extends Operation{
         List<String> operators = getAllOperatorsAndOperands(exprValues, operands);
 
         Operation op = new Operation();
-        return getResultForMultiple(operands, operators, op);
+        return calculateAll(operands, operators, op);
     }
 
     public int getResult () throws Exception {
@@ -52,7 +52,9 @@ public class Evaluator extends Operation{
         return operators;
     }
 
-    private int getResultForMultiple(List<Integer> operands, List<String> operators, Operation op) throws Exception {
+    private int calculateAll(List<Integer> operands, List<String> operators, Operation op) throws Exception {
+        if(operands.size() == 1)
+            return operands.get(0);
         int result = op.evaluateResult(operators.get(0), operands.get(0), operands.get(1));
         for (int i = 1; i < operators.size(); i++) {
             result = op.evaluateResult(operators.get(i), result, operands.get(i + 1));
@@ -73,8 +75,10 @@ public class Evaluator extends Operation{
             }
         }
         StringBuffer innerExpression = new StringBuffer(expression.substring(beginIndex + 1, endIndex));
+        System.out.println(innerExpression);
         int result = getResult(innerExpression.toString().trim());
         exp.replace(beginIndex, endIndex + 1, Integer.toString(result));
+        System.out.println(exp.toString().trim());
         return exp.toString().trim();
     }
 }

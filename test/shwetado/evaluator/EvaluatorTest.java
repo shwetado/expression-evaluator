@@ -165,4 +165,13 @@ public class EvaluatorTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testGivesResultWhenGivenNestedBracketsAndExpStartsWithBrackets() throws Exception {
+        String expression = "( 1 + 2 * ( 4 - ( 12 / 3 - 3 ) + 2 ) ^ 3 )";
+        int expected = 3375;
+        Evaluator evaluator = new Evaluator(expression);
+        int actual = evaluator.getResult();
+        Assert.assertEquals(expected, actual);
+    }
+
 }
