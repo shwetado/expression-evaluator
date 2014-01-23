@@ -191,4 +191,33 @@ public class EvaluatorTest {
         double actual = evaluator.getResult();
         Assert.assertEquals(expected,actual,1);
     }
+
+    @Test
+    public void testGivesOutputForDecimalsWith1SetOfParentheses() throws Exception {
+        String expression = "1.0 + ( 1.0 + 1.0 ) + 1.0";
+        double expected = 4;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test
+    public void testGivesOutputForDecimalsWithMultipleSetOfParentheses() throws Exception {
+        String expression = "1.0 + ( 1.0 + 1.0 ) + ( 1.0 + 1.0 )";
+        double expected = 5;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test
+    public void testGivesOutputForDecimalsWithNestedParentheses() throws Exception {
+        String expression = "1.0 + ( 1.0 + ( 1.0 * 1.0 ) ) + 1.0";
+        double expected = 4;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+
 }
