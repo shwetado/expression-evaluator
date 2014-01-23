@@ -255,4 +255,66 @@ public class EvaluatorTest {
         Assert.assertEquals(expected,actual,1);
     }
 
+    @Test
+    public void testGivesOutputWhenInputGivenWithoutSpaces() throws Exception {
+        String expression = "1+1";
+        double expected = 2;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test
+    public void testGivesOutputWhenInputGivenWithoutSpacesWithBrackets() throws Exception {
+        String expression = "1+1+(2+2)";
+        double expected = 6;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test
+    public void testGivesOutputWhenInputGivenWithoutSpacesWithMultipleBrackets() throws Exception {
+        String expression = "1+1+(1+1)+(1+1)";
+        double expected = 6;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test
+    public void testGivesOutputWhenInputGivenWithoutSpacesWithNestedBrackets() throws Exception {
+        String expression = "1+1+(1+1)+1+(1+(1+1))";
+        double expected = 8;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test
+    public void testGivesOutputWhenDecimalInputGivenWithoutSpacesWithMultipleBrackets() throws Exception {
+        String expression = "1.0+1.0+(1.0+1.0)+(1.0+1.0)";
+        double expected = 6.0;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test
+    public void testGivesOutputWhenNegativeInputGivenWithoutSpacesWithMultipleBrackets() throws Exception {
+        String expression = "1+1+(1-1)+(1-1)";
+        double expected = 2;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test
+    public void testGivesOutputFor1NegativeNumbers() throws Exception {
+        String expression = "200--200";
+        double expected = 400;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
 }

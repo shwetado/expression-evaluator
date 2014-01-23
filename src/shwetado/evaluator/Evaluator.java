@@ -8,7 +8,7 @@ public class Evaluator extends Operation{
 
     public Evaluator(String expression) {
         super();
-        this.expression = expression.trim();
+        this.expression = getExpressionWithSpace(expression.trim());
     }
 
     public String getExpression() {
@@ -60,6 +60,20 @@ public class Evaluator extends Operation{
             result = op.evaluateResult(operators.get(i), result, operands.get(i + 1));
         }
         return result;
+    }
+
+    public String getExpressionWithSpace(String exp) {
+        String expression = exp;
+        expression = expression.replaceAll(" +", "");
+        return expression.replaceAll("\\+", " + ")
+                .replaceAll("\\-", " - ")
+                .replaceAll("\\*", " * ")
+                .replaceAll("/", " / ")
+                .replaceAll("\\^", " ^ ")
+                .replaceAll("\\(", "( ")
+                .replaceAll("\\)", " )")
+                .replaceAll("  - ", " -")
+                .replaceFirst("^ - ", "-");
     }
 
     private String manageParentheses(String expression) throws Exception {

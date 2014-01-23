@@ -8,7 +8,7 @@ This repository has implementation for evaluating mathematical expressions accor
 * If you want to run expression-evaluator then then
     `sh sd_evaluator.sh $expression`.
 
-##### expression-evauator :
+##### expression-evaluator :
 * You need to give your expression in form of:
         `operand operator operand` each separated by spaces!
 * It atleast needs one operator and two operands!
@@ -21,10 +21,20 @@ sd_evaluator.sh expression
 
 #### Releases work for:
 
+##### Release 0.6: Works for:
+
+```
+    Input without blank spaces in between
+```
+Example:
+```
+sd_evaluator.sh "200.0--200.0"
+```
+Output: 0
+
 ##### Release 0.5: Works for:
 
 ```
-Negative numbers
 	Decimal numbers
 	Negative numbers
 ```
