@@ -129,4 +129,13 @@ public class EvaluatorTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testGivesResultWhenOneSetOfBracketsGivenWithMultipleElements() throws Exception {
+        String expression = "200 - ( 10 * 10 + 10 )";
+        int expected = 90;
+        Evaluator evaluator = new Evaluator(expression);
+        int actual = evaluator.getResult();
+        Assert.assertEquals(expected, actual);
+    }
+
 }

@@ -19,13 +19,11 @@ public class Evaluator extends Operation{
         String inputExpr = innerExpression;
         String[] exprValues ;
         List<Integer> operands = new ArrayList<Integer>();
-        System.out.println(inputExpr);
         if (inputExpr.contains("("))
             inputExpr = manageParentheses(inputExpr);
         exprValues = inputExpr.split(" ");
         List<String> operators = getAllOperatorsAndOperands(exprValues, operands);
         Operation op = new Operation();
-        System.out.println(getResultForMultiple(operands, operators, op));
         return getResultForMultiple(operands, operators, op);
     }
 
