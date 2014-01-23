@@ -15,12 +15,22 @@ public class Evaluator extends Operation{
         return this.expression;
     }
 
-    public int getResult () throws Exception {
-        String[] values  = this.expression.split(" ");
+    public int getResult (String innerExpression) throws Exception {
+        String inputExpr = innerExpression;
+        String[] exprValues ;
         List<Integer> operands = new ArrayList<Integer>();
-        List<String> operators = getAllOperatorsAndOperands(values, operands);
+        System.out.println(inputExpr);
+        if (inputExpr.contains("("))
+            inputExpr = manageParentheses(inputExpr);
+        exprValues = inputExpr.split(" ");
+        List<String> operators = getAllOperatorsAndOperands(exprValues, operands);
         Operation op = new Operation();
+        System.out.println(getResultForMultiple(operands, operators, op));
         return getResultForMultiple(operands, operators, op);
+    }
+
+    public int getResult () throws Exception {
+        return getResult(this.expression);
     } 
 
     private List<String> getAllOperatorsAndOperands(String[] values, List<Integer> operands){
@@ -43,4 +53,13 @@ public class Evaluator extends Operation{
         return result;
     }
 
+    private String manageParentheses(String expression) throws Exception {
+        int beginIndex = expression.indexOf('(');
+        int endIndex = expression.indexOf(')');
+        StringBuilder exp = new StringBuilder(expression);
+        StringBuffer innerExpression = new StringBuffer(expression.substring(beginIndex + 1, endIndex));
+        int result = getResult(innerExpression.toString().trim());
+        exp.replace(beginIndex, endIndex + 1, Integer.toString(result));
+        return exp.toString().trim();
+    }
 }

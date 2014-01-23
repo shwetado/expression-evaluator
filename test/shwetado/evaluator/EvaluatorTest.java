@@ -120,4 +120,13 @@ public class EvaluatorTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void testGivesResultWhenOneSetOfBracketsGiven() throws Exception {
+        String expression = "20 - ( 2 + 2 )";
+        int expected = 16;
+        Evaluator evaluator = new Evaluator(expression);
+        int actual = evaluator.getResult();
+        Assert.assertEquals(expected, actual);
+    }
+
 }
