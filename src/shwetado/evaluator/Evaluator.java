@@ -15,9 +15,9 @@ public class Evaluator extends Operation{
         return this.expression.trim();
     }
 
-    public int getResult (String innerExpression) throws Exception {
+    public double getResult (String innerExpression) throws Exception {
         String inputExpr = innerExpression;
-        List<Integer> operands = new ArrayList<Integer>();
+        List<Double> operands = new ArrayList<Double>();
 
         if (inputExpr.contains("(")){
             inputExpr = manageParentheses(inputExpr);
@@ -26,7 +26,7 @@ public class Evaluator extends Operation{
         return evaluateResult(inputExpr, operands);
     }
 
-    private int evaluateResult(String inputExpr, List<Integer> operands) throws Exception {
+    private double evaluateResult(String inputExpr, List<Double> operands) throws Exception {
         String[] exprValues;
         exprValues = inputExpr.split(" ");
 
@@ -36,15 +36,15 @@ public class Evaluator extends Operation{
         return calculateAll(operands, operators, op);
     }
 
-    public int getResult () throws Exception {
+    public double getResult () throws Exception {
         return getResult(this.expression);
     }
 
-    private List<String> getAllOperatorsAndOperands(String[] values, List<Integer> operands){
+    private List<String> getAllOperatorsAndOperands(String[] values, List<Double> operands){
         List<String> operators = new ArrayList<String>();
         for (String operator : values) {
             try {
-                operands.add(Integer.parseInt(operator));
+                operands.add(Double.parseDouble(operator));
             } catch (Exception ex) {
                 operators.add(operator);
             }
@@ -52,10 +52,10 @@ public class Evaluator extends Operation{
         return operators;
     }
 
-    private int calculateAll(List<Integer> operands, List<String> operators, Operation op) throws Exception {
+    private double calculateAll(List<Double> operands, List<String> operators, Operation op) throws Exception {
         if(operands.size() == 1)
             return operands.get(0);
-        int result = op.evaluateResult(operators.get(0), operands.get(0), operands.get(1));
+        double result = op.evaluateResult(operators.get(0), operands.get(0), operands.get(1));
         for (int i = 1; i < operators.size(); i++) {
             result = op.evaluateResult(operators.get(i), result, operands.get(i + 1));
         }
@@ -75,8 +75,8 @@ public class Evaluator extends Operation{
             }
         }
         StringBuffer innerExpression = new StringBuffer(expression.substring(beginIndex + 1, endIndex));
-        int result = getResult(innerExpression.toString().trim());
-        exp.replace(beginIndex, endIndex + 1, Integer.toString(result));
+        double result = getResult(innerExpression.toString().trim());
+        exp.replace(beginIndex, endIndex + 1, Double.toString(result));
         return exp.toString().trim();
     }
 }
