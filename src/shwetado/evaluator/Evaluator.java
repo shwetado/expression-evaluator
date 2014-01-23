@@ -17,12 +17,21 @@ public class Evaluator extends Operation{
 
     public int getResult (String innerExpression) throws Exception {
         String inputExpr = innerExpression;
-        String[] exprValues ;
         List<Integer> operands = new ArrayList<Integer>();
-        if (inputExpr.contains("("))
+
+        if (inputExpr.contains("(")){
             inputExpr = manageParentheses(inputExpr);
+            return getResult(inputExpr);
+        }
+        return evaluateResult(inputExpr, operands);
+    }
+
+    private int evaluateResult(String inputExpr, List<Integer> operands) throws Exception {
+        String[] exprValues;
         exprValues = inputExpr.split(" ");
+
         List<String> operators = getAllOperatorsAndOperands(exprValues, operands);
+
         Operation op = new Operation();
         return getResultForMultiple(operands, operators, op);
     }
@@ -52,9 +61,17 @@ public class Evaluator extends Operation{
     }
 
     private String manageParentheses(String expression) throws Exception {
-        int beginIndex = expression.indexOf('(');
-        int endIndex = expression.indexOf(')');
+        int beginIndex = -1;
+        int endIndex = -1;
         StringBuilder exp = new StringBuilder(expression);
+        for(int i = 0; i < expression.length();  i++){
+            if((expression.charAt(i) == '('))
+                beginIndex = i;
+            if((expression.charAt(i) == ')')){
+                endIndex = i;
+                break;
+            }
+        }
         StringBuffer innerExpression = new StringBuffer(expression.substring(beginIndex + 1, endIndex));
         int result = getResult(innerExpression.toString().trim());
         exp.replace(beginIndex, endIndex + 1, Integer.toString(result));
