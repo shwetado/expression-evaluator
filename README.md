@@ -21,6 +21,23 @@ sd_evaluator.sh expression
 
 #### Releases work for:
 
+##### Release 0.3: Works for:
+
+```
+It accepts:
+    1 Set of parentheses ‘ ( ) ‘
+```
+Accepts expressions in the form given below:
+
+```
+sd_evaluator.sh "operand operator ( operand operator operand ) {[operands operators operands]...}"
+```
+Example:
+```
+sd_evaluator.sh "200 - ( 10 * 10 + 10 ) + 10"
+```
+Output: 200
+
 ##### Release 0.2: Works for:
 
 ```
@@ -39,7 +56,6 @@ Example:
 sd_evaluator.sh "2 + 2 * 2 / 2 - 2 ^ 2"
 ```
 Output: 4
-
 
 ##### Release 0.1: Works for:
 
