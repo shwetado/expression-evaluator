@@ -21,10 +21,24 @@ sd_evaluator.sh expression
 
 #### Releases work for:
 
+##### Release 0.5: Works for:
+
+```
+Negative numbers
+	Decimal numbers
+	Negative numbers
+```
+Example:
+```
+sd_evaluator.sh "200.0 - -200.0"
+```
+Output: 0
+
 ##### Release 0.4: Works for:
 
 ```
 It accepts:
+    Nested Parentheses ' ( ( ) )'
     Multiple Set of parentheses ‘ ( ) ‘
 ```
 Accepts expressions in the form given below:
@@ -100,5 +114,4 @@ Output: 12
 
 ### Known Bugs:
 
-* While divide operation the result is whole number even if the expression returns decimal.
 * The "raise to a power" gives constant value when the integer range is over!
