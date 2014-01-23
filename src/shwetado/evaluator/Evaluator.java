@@ -75,10 +75,8 @@ public class Evaluator extends Operation{
             }
         }
         StringBuffer innerExpression = new StringBuffer(expression.substring(beginIndex + 1, endIndex));
-        System.out.println(innerExpression);
         int result = getResult(innerExpression.toString().trim());
         exp.replace(beginIndex, endIndex + 1, Integer.toString(result));
-        System.out.println(exp.toString().trim());
         return exp.toString().trim();
     }
 }
