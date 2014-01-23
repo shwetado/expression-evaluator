@@ -21,6 +21,26 @@ sd_evaluator.sh expression
 
 #### Releases work for:
 
+##### Release 0.2: Works for:
+
+```
+It accepts:
+    Multiple operators
+    Multiple operands
+```
+
+Accepts expressions in the form given below:
+
+```
+sd_evaluator.sh "operand operator operand {[operands operators operands]...}"
+```
+Example:
+```
+sd_evaluator.sh "2 + 2 * 2 / 2 - 2 ^ 2"
+```
+Output: 4
+
+
 ##### Release 0.1: Works for:
 
 ```
@@ -44,26 +64,6 @@ Example:
 sd_evaluator.sh "5 + 7"
 ```
 Output: 12
-
-
-##### Release 0.2: Works for:
-
-```
-It accepts:
-    Multiple operators
-    Multiple operands
-```
-
-Accepts expressions in the form given below:
-
-```
-sd_evaluator.sh "operand operator operand {[operands operators operands]...}"
-```
-Example:
-```
-sd_evaluator.sh "2 + 2 * 2 / 2 - 2 ^ 2"
-```
-Output: 4
 
 ### Known Bugs:
 
