@@ -219,5 +219,40 @@ public class EvaluatorTest {
         Assert.assertEquals(expected,actual,1);
     }
 
+    @Test
+    public void testGivesOutputForNegativeNumbers() throws Exception {
+        String expression = "1.0 - -1.0";
+        double expected = 2.0;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test
+    public void testGivesOutputForNegativeNumbersWith1Brackets() throws Exception {
+        String expression = "1.0 - ( -1.0 * -1.0 )";
+        double expected = 0;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test
+    public void testGivesOutputForNegativeNumbersWithMultipleBrackets() throws Exception {
+        String expression = "1.0 - ( -1.0 * -1.0 ) + ( 1.0 - -1.0 )";
+        double expected = 2.0;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test
+    public void testGivesOutputForNegativeNumbersWithNestedBrackets() throws Exception {
+        String expression = "1.0 - ( -1.0 * ( -1.0 + -1.0 ) ) + ( 1.0 - -1.0 ) + 1.0";
+        double expected = 3.0;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
 
 }
