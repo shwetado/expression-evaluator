@@ -38,7 +38,7 @@ public class Evaluator extends Operation{
 
     public int getResult () throws Exception {
         return getResult(this.expression);
-    } 
+    }
 
     private List<String> getAllOperatorsAndOperands(String[] values, List<Integer> operands){
         List<String> operators = new ArrayList<String>();
