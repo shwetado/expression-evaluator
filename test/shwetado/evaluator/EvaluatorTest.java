@@ -317,4 +317,45 @@ public class EvaluatorTest {
         double actual = evaluator.getResult();
         Assert.assertEquals(expected,actual,1);
     }
+
+    @Test
+    public void testOutputFor1NegativeNumbers() throws Exception {
+        String expression = "-1-1";
+        double expected = -2;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test
+    public void testWhenGivenMultipleSpaces() throws Exception {
+        String expression = "(             4 *     1)";
+        double expected = 4;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGivesOutputWhen1OperandAnd1OperatorGiven() throws Exception {
+        String expression = "((4 * ))";
+        Evaluator evaluator = new Evaluator(expression);
+        evaluator.getResult();
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGivesOutputWhenCharacterIsGivenAsInput() throws Exception {
+        String expression = "((4 * a))";
+        Evaluator evaluator = new Evaluator(expression);
+        evaluator.getResult();
+    }
+
+    @Test
+    public void testWhenGivenNegativeNumberInBracket() throws Exception {
+        String expression = "23+(-7)";
+        double expected = 16;
+        Evaluator evaluator = new Evaluator(expression);
+        double actual = evaluator.getResult();
+        Assert.assertEquals(expected,actual,1);
+    }
 }

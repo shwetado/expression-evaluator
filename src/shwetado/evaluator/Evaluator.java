@@ -53,13 +53,13 @@ public class Evaluator extends Operation{
     }
 
     private double calculateAll(List<Double> operands, List<String> operators, Operation op) throws Exception {
-        if(operands.size() == 1)
-            return operands.get(0);
-        double result = op.evaluateResult(operators.get(0), operands.get(0), operands.get(1));
-        for (int i = 1; i < operators.size(); i++) {
-            result = op.evaluateResult(operators.get(i), result, operands.get(i + 1));
+
+        double operand = operands.get(0);
+        for (int i = 0; i < operators.size(); i++) {
+            operand = op.evaluateResult(operators.get(i),operand,operands.get(i + 1));
         }
-        return result;
+        return operand;
+
     }
 
     public String getExpressionWithSpace(String exp) {
