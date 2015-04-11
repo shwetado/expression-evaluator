@@ -1,5 +1,6 @@
 Expression - Evaluator
 ====================
+[![Build Status](https://travis-ci.org/shwetado/expression-evaluator.png)](https://travis-ci.org/shwetado/expression-evaluator)
 This repository has implementation for evaluating mathematical expressions according to `BOD MAS`.
 
 #### How do you install?
